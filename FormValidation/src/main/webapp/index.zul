@@ -1,0 +1,62 @@
+<?page title="ZK MVVM"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.project.viewmodel.StudentViewModel')">
+<grid>
+<columns>
+<column></column>
+<column></column>
+</columns>
+<rows>
+<row>
+First Name:
+<textbox id="fname" hflex="1" value="@save(vm.students.firstName)"></textbox>
+</row>
+<row>
+Last Name:
+<textbox id="lname"  hflex="1" value="@save(vm.students.lastName)"></textbox>
+</row>
+<row>
+Date of Birth:
+<datebox id="dob" hflex="1" value="@save(vm.students.dob)"></datebox>
+</row>
+<row>
+<hlayout>
+<button id="save" label="SAVE" onClick="@command('saveButton')"></button>
+<button id="print" label="PRINT" onClick="@command('main')"></button>
+</hlayout>
+</row>
+</rows>
+</grid>
+
+<listbox model="@bind(vm.lsStudents)" id="mylBox">
+<listhead>
+<listheader label="ID"></listheader>
+<listheader label="First name"></listheader>
+<listheader label="Last name"></listheader>
+<listheader label="Date of birth"></listheader>
+<listheader label="Action"></listheader>
+</listhead>
+<template name="model">
+<listitem>
+<listcell>
+<textbox inplace="true" value="@bind(each.id)"></textbox>
+</listcell>
+<listcell>
+<textbox inplace="true" value="@bind(each.firstName)"></textbox>
+</listcell>
+<listcell>
+<textbox inplace="true" value="@bind(each.lastName)"></textbox>
+</listcell>
+<listcell>
+<datebox inplace="true" value="@bind(each.dob)"></datebox>
+</listcell>
+<listcell>
+<button label="Delete" onClick="@command('deletion', items=each)"></button>
+<separator></separator>
+<button label="Update" onClick="@command('updating', item=each)"></button>
+</listcell>
+</listitem>
+</template>
+</listbox>
+</window>
+</zk>
