@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<zk.version>8.5.0</zk.version>
-				<spring.version>4.2.6.RELEASE</spring.version>
+				<spring.version>6.0.0</spring.version>
 		
 		<commons-io>2.4</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
